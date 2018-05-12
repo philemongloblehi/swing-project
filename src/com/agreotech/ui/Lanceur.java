@@ -172,6 +172,12 @@ public class Lanceur {
 		
 		
 		
+		
+		
+		
+		
+		sc.close();
+		
 
 	}
 
