@@ -65,7 +65,7 @@ public class ModelParcelle extends AbstractTableModel {
 		}
 	}
 	
-	public void ModifEngin(int rowSelected, String strCulture, String strObservation) {
+	public void ModifParcelle(int rowSelected, String strCulture, String strObservation) {
 		listParcelle.get(rowSelected).setCulture(strCulture);
 		listParcelle.get(rowSelected).setObservation(strObservation);
 		parcelleService.modifier(listParcelle.get(rowSelected));
