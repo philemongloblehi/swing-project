@@ -139,7 +139,10 @@ public class EnginPanel extends JPanel {
 
 		// action sur "btnValider"
 		btnValider.addActionListener(e ->{
-			Engin engin = new Engin(txtImmatriculation.getText(), txtMarque.getText(), (double)txtConsommation.getText());
+			
+			double consommation = Double.parseDouble(txtConsommation.getText());
+			
+			Engin engin = new Engin(txtImmatriculation.getText(), txtMarque.getText(), consommation);
 			
 			this.viderLesChamp();
 			
@@ -175,7 +178,10 @@ public class EnginPanel extends JPanel {
 		
 		// action btnModif
 		btnModif.addActionListener(e ->{
-				modelEngin.ModifEngin(tableEngin.getSelectedRow(), txtImmatriculation.getText(), txtMarque.getText(), (double)txtConsommation.getText());
+				
+			double consommation = Double.parseDouble(txtConsommation.getText());
+			
+			modelEngin.ModifEngin(tableEngin.getSelectedRow(), txtImmatriculation.getText(), txtMarque.getText(), consommation);
 			
 				this.viderLesChamp();
 				JOptionPane.showMessageDialog(null, "Modification effectué", "Information", JOptionPane.DEFAULT_OPTION);

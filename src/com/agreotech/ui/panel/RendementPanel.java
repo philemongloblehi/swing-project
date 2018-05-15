@@ -139,7 +139,10 @@ public class RendementPanel extends JPanel {
 
 		// action sur "btnValider"
 		btnValider.addActionListener(e ->{
-			Rendement rendement = new Rendement(txtDesignation.getText(), txtAnnee.getText(), (double)txtRecolte.getText());
+			
+			double recolte = Double.parseDouble(txtRecolte.getText());
+
+			Rendement rendement = new Rendement(txtDesignation.getText(), txtAnnee.getText(), recolte);
 			
 			this.viderLesChamp();
 			
@@ -175,7 +178,10 @@ public class RendementPanel extends JPanel {
 		
 		// action btnModif
 		btnModif.addActionListener(e ->{
-				modelRendement.ModifRendement(tableRendement.getSelectedRow(), txtDesignation.getText(), txtAnnee.getText(), (double)txtRecolte.getText());
+				
+			double recolte = Double.parseDouble(txtRecolte.getText());
+
+			modelRendement.ModifRendement(tableRendement.getSelectedRow(), txtDesignation.getText(), txtAnnee.getText(), recolte);
 			
 				this.viderLesChamp();
 				JOptionPane.showMessageDialog(null, "Modification effectuée", "Information", JOptionPane.DEFAULT_OPTION);

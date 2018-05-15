@@ -132,7 +132,10 @@ public class ProduitPanel extends JPanel {
 
 		// action sur "btnValider"
 		btnValider.addActionListener(e ->{
-			Produit produit = new Produit(txtDesignation.getText(), (int)txtPrix.getText());
+			
+			int prix = Integer.parseInt(txtPrix.getText());
+			
+			Produit produit = new Produit(txtDesignation.getText(), prix);
 			
 			this.viderLesChamp();
 			
@@ -168,7 +171,10 @@ public class ProduitPanel extends JPanel {
 		
 		// action btnModif
 		btnModif.addActionListener(e ->{
-				modelProduit.ModifProduit(tableProduit.getSelectedRow(), txtDesignation.getText(), (int)txtPrix.getText());
+				
+			int prix = Integer.parseInt(txtPrix.getText());
+
+			modelProduit.ModifProduit(tableProduit.getSelectedRow(), txtDesignation.getText(), prix);
 			
 				this.viderLesChamp();
 				JOptionPane.showMessageDialog(null, "Modification effectuée", "Information", JOptionPane.DEFAULT_OPTION);

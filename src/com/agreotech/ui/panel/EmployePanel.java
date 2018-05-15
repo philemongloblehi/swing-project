@@ -169,15 +169,18 @@ public class EmployePanel extends JPanel {
 				
 			}
 		});
-
-		String sexe ="";
-		if (radioH.isSelected()) sexe = "HOMME";
-		else if(radioF.isSelected()) sexe = "FEMME";
 		
 
 		// action sur "btnValider"
 		btnValider.addActionListener(e ->{
-			Employe employe = new Employe(txtMatricule.getText(), txtNom.getText(), txtPrenom.getText(), txtFonction.getText(), sexe, txtContact.getText(), (int)txtSalaire.getText());
+			
+			String sexe ="";
+			if (radioH.isSelected()) sexe = "HOMME";
+			else if(radioF.isSelected()) sexe = "FEMME";
+
+			int salaire = Integer.parseInt(txtSalaire.getText());
+			
+			Employe employe = new Employe(txtMatricule.getText(), txtNom.getText(), txtPrenom.getText(), txtFonction.getText(), sexe, txtContact.getText(), salaire);
 			
 			this.viderLesChamp();
 			
@@ -213,7 +216,14 @@ public class EmployePanel extends JPanel {
 		
 		// action btnModif
 		btnModif.addActionListener(e ->{
-				modelEmploye.ModifEmploye(tableEmploye.getSelectedRow(), txtMatricule.getText(), txtNom.getText(), txtPrenom.getText(), txtFonction.getText(), sexe, txtContact.getText(), (int)txtSalaire.getText());
+			
+			String sexe ="";
+			if (radioH.isSelected()) sexe = "HOMME";
+			else if(radioF.isSelected()) sexe = "FEMME";
+
+			int salaire = Integer.parseInt(txtSalaire.getText());
+			
+				modelEmploye.ModifEmploye(tableEmploye.getSelectedRow(), txtMatricule.getText(), txtNom.getText(), txtPrenom.getText(), txtFonction.getText(), sexe, txtContact.getText(), salaire);
 			
 				this.viderLesChamp();
 				JOptionPane.showMessageDialog(null, "Modification effectué", "Information", JOptionPane.DEFAULT_OPTION);
